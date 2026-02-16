@@ -1,0 +1,336 @@
+{
+  "info": {
+    "_postman_id": "58cd3bcf-8c6d-4aef-abc5-b2fdbcbf27f1",
+    "name": "Gestor de opiniones",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52435973",
+    "_collection_link": "https://go.postman.co/collection/52435973-58cd3bcf-8c6d-4aef-abc5-b2fdbcbf27f1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Registrarte",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"K.\",\r\n    \"surname\": \"Solórzano\",\r\n    \"username\": \"ksolorzano\",\r\n    \"email\": \"k.solorzano@kinal.edu.gt\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"12345678\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"identifier\": \"ksolorzano\", \r\n    \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Perfil",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Nuevo Nombre\",\r\n    \"surname\": \"Nuevo Apellido\",\r\n    \"oldPassword\": \"123456\",\r\n    \"password\": \"nuevaPassword123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/users/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "users",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Publicar Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Mi Proyecto de Node.js\",\r\n    \"category\": \"Tecnología\",\r\n    \"content\": \"Este es el contenido de mi opinión sobre el laboratorio.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ver posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Editar post",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Título Actualizado\",\r\n    \"content\": \"Contenido editado.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/posts/id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "posts",
+            "id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar Post",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/posts/id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "posts",
+            "id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar comentario",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"content\": \"Excelente opinión, estoy de acuerdo.\",\r\n    \"post\": \"ID_DE_LA_PUBLICACION\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/comments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "comments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Editar comentario",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"content\": \"Editando mi comentario para corregir ortografía.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/comments/id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "comments",
+            "id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar comentario",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/comments/id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "comments",
+            "id"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
