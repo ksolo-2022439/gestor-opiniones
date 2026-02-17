@@ -3,6 +3,7 @@ import { check } from 'express-validator';
 import { createComment, updateComment, deleteComment } from '../controllers/comment.controller.js';
 import { validateFields } from '../middlewares/validate-fields.js';
 import { validateJWT } from '../middlewares/validate-jwt.js';
+import { getCommentsByPost } from '../controllers/comment.controller.js';
 
 const router = Router();
 
@@ -25,5 +26,7 @@ router.delete('/:id', [
     check('id', 'Invalid ID').isMongoId(),
     validateFields
 ], deleteComment);
+
+router.get('/:postId', getCommentsByPost);
 
 export default router;

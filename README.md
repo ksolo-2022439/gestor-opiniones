@@ -11,6 +11,7 @@ El sistema permite a los usuarios registrarse, iniciar sesión, gestionar su per
 - Node.js (v18 o superior)
 - MongoDB (servicio en ejecución)
 - pnpm (gestor de paquetes)
+- **Puerto 3000 disponible** (necesario para la configuración por defecto)
 
 ## Instalación
 
@@ -46,6 +47,11 @@ Para entorno de producción:
 pnpm start
 ```
 
+Para utilizar el Frontend (Visual Studio Code)
+* Ejecutar el Backend con pnpm
+* Descargar la extensión **Live Server**
+* Abrir el Servidor en el index.html
+
 ## Estructura del Proyecto
 
 El código se encuentra dentro de la carpeta `src` siguiendo una arquitectura modular:
@@ -60,6 +66,8 @@ El código se encuentra dentro de la carpeta `src` siguiendo una arquitectura mo
 ## Endpoints de la API
 
 La URL base es: `http://localhost:3000/gestorOpiniones/v1`
+
+> **Nota:** Asegúrate de que tu servidor se esté ejecutando en el puerto **3000**. Si cambias el puerto en el archivo `.env`, deberás ajustar la URL base de las peticiones.
 
 ### Autenticación
 
