@@ -70,3 +70,29 @@ export const deleteComment = async (req, res) => {
         msg: 'Comentario eliminado'
     });
 }
+
+export const getComments = async (req, res) => {
+    const { limit = 10, from = 0 } = req.query;
+    const query = { status: true };
+
+    try {
+        const [total, comments] = await Promise.all([
+            Comment.countDocuments(query),
+            Comment.find(query)
+                .skip(Number(from))
+                .limit(Number(limit))
+                .populate('author', 'username')
+                .populate('post', 'title')
+        ]);
+
+        res.status(200).json({
+            total,
+            comments
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: 'Error al obtener los comentarios'
+        });
+    }
+}

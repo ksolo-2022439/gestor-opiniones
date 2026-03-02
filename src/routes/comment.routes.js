@@ -1,10 +1,13 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { createComment, updateComment, deleteComment } from '../controllers/comment.controller.js';
+import { createComment, updateComment, deleteComment, getComments } from '../controllers/comment.controller.js';
 import { validateFields } from '../middlewares/validate-fields.js';
 import { validateJWT } from '../middlewares/validate-jwt.js';
 
+
 const router = Router();
+
+router.get('/', getComments);
 
 router.post('/', [
     validateJWT,

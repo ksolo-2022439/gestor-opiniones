@@ -79,6 +79,7 @@ La URL base es: `http://localhost:3000/gestorOpiniones/v1`
 
 ### Comentarios
 
+* GET /comments - Listar todos los comentarios.
 * POST /comments - Agregar comentario a una publicación.
 * PUT /comments/:id - Editar comentario (solo el autor).
 * DELETE /comments/:id - Eliminar comentario (solo el autor).

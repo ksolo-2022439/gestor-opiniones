@@ -328,6 +328,27 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Ver comentarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/gestorOpiniones/v1/comments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "gestorOpiniones",
+            "v1",
+            "comments"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
