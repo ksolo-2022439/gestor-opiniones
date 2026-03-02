@@ -2,6 +2,10 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+
+import { corsOptions } from './cors-configuration.js';
+import { helmetConfiguration } from './helmet-configuration.js';
+
 import authRoutes from '../routes/auth.routes.js';
 import userRoutes from '../routes/user.routes.js';
 import postRoutes from '../routes/post.routes.js';
@@ -10,8 +14,9 @@ import commentRoutes from '../routes/comment.routes.js';
 const configs = (app) => {
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-    app.use(cors());
-    app.use(helmet());
+    app.use(cors(corsOptions));
+    app.use(helmet(helmetConfiguration));
+
     app.use(morgan('dev'));
 }
 
