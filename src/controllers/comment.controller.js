@@ -96,3 +96,14 @@ export const getComments = async (req, res) => {
         });
     }
 }
+
+export const getCommentsByPost = async (req, res) => {
+    const { postId } = req.params;
+
+    const comments = await Comment.find({ post: postId, status: true })
+        .populate('author', 'username _id');
+
+    res.status(200).json({
+        comments
+    });
+}

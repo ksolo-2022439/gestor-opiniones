@@ -3,11 +3,14 @@ import { check } from 'express-validator';
 import { createComment, updateComment, deleteComment, getComments } from '../controllers/comment.controller.js';
 import { validateFields } from '../middlewares/validate-fields.js';
 import { validateJWT } from '../middlewares/validate-jwt.js';
+import { getCommentsByPost } from '../controllers/comment.controller.js';
 
 
 const router = Router();
 
 router.get('/', getComments);
+
+router.get('/:postId', getCommentsByPost);
 
 router.post('/', [
     validateJWT,
